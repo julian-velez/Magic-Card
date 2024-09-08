@@ -1,0 +1,75 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #0c0c0c;
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  .magic-card-container {
+    perspective: 1500px;
+  }
+  
+  .magic-card {
+    width: 300px;
+    height: 450px;
+    background: linear-gradient(145deg, #1e1e1e, #2c2c2c);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+  
+  .magic-card:hover {
+    transform: rotateY(25deg) rotateX(10deg) scale(1.05);
+    box-shadow: 0 0 60px rgba(255, 0, 150, 0.5), 0 0 100px rgba(255, 0, 150, 0.2);
+  }
+  
+  .magic-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: linear-gradient(45deg, rgba(255, 0, 150, 0.3), rgba(0, 255, 255, 0.3));
+    box-shadow: 0 0 30px rgba(255, 0, 150, 0.6), 0 0 60px rgba(0, 255, 255, 0.4);
+    animation: neon-glow 3s infinite alternate;
+    z-index: -1;
+    filter: blur(10px);
+  }
+  
+  .card-title {
+    font-size: 28px;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    margin: 0;
+  }
+  
+  .card-description {
+    font-size: 16px;
+    color: #d3d3d3;
+    text-align: center;
+  }
+  
+  @keyframes neon-glow {
+    0% {
+      transform: scale(1.1);
+      filter: blur(12px);
+    }
+    100% {
+      transform: scale(1.2);
+      filter: blur(20px);
+    }
+  }
+  
